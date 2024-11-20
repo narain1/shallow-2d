@@ -40,35 +40,11 @@ $f_{i+1/2} = \frac{-f_{i-1} + 26f_i - f_{i+1}}{24}$
 
 This scheme provides better accuracy compared to simple first-order methods.
 
-## Parallelization Strategy
-
-### Domain Decomposition
-
-The simulation domain is divided into subdomains, with each subdomain assigned to a different OpenMP thread. This approach allows for parallel computation of fluxes and state updates.
-
-### Load Balancing
-
-The `init_myid` function implements a load balancing strategy by dividing the domain evenly among available threads, with any remainder distributed to maintain balance.
-
-## Time Integration
 
 ### Runge-Kutta Method
 
 A third-order Runge-Kutta method is used for time integration, providing stability and accuracy. The method involves three substeps per time step, each updating the state variables.
 
-## Boundary Conditions
-
-Periodic boundary conditions are implemented, allowing the simulation to represent a continuous domain wrapped around in both x and y directions.
-
-## Forcing
-
-An external forcing term is included in the simulation, represented by:
-
-$F = A \sin(2\pi \omega t)$
-
-Where $A$ is the amplitude and $\omega$ is the frequency of the forcing.
-
-Thank you for providing the correct compilation instruction. I'll update the instructions to reflect this specific command. Here's a revised version of the running instructions:
 
 # Running the Shallow Water Equations Simulation
 
@@ -110,35 +86,3 @@ Thank you for providing the correct compilation instruction. I'll update the ins
    ```
    ./main
    ```
-
-## Adjusting Parameters
-
-- To modify simulation parameters, edit the constants at the beginning of `main.c`.
-- Recompile after making any changes to the source code.
-
-## Output
-
-- The simulation will generate a binary file named `shallow.bin` containing the fluid height data.
-- Progress messages will be printed to the console.
-
-## Performance Testing
-
-- To compare performance with different thread counts:
-
-  1. Run the simulation multiple times, changing `OMP_NUM_THREADS` each time:
-     ```
-     export OMP_NUM_THREADS=1
-     ./main
-     export OMP_NUM_THREADS=2
-     ./main
-     # ... and so on
-     ```
-
-  2. Note the execution time reported at the end of each run.
-
-## Troubleshooting
-
-- Ensure the Intel Compiler and its environment are properly set up.
-- If you encounter any issues with OpenMP, verify that it's correctly enabled in your Intel Compiler installation.
-
-Remember to recompile the code after making any changes to the source files.
