@@ -1,0 +1,1 @@
+icc -O3 -g -std=c99 -qopenmp -o main bound.c flux.c tendency.c main.c
