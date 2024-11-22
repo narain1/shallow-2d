@@ -14,17 +14,17 @@ The shallow water equations in two dimensions are:
 
    $\frac{\partial h}{\partial t} + \frac{\partial (hu)}{\partial x} + \frac{\partial (hv)}{\partial y} = 0$
 
-   2. Momentum equations:
+2. Momentum equations:
 
-      $\frac{\partial (hu)}{\partial t} + \frac{\partial}{\partial x}(hu^2 + \frac{1}{2}gh^2) + \frac{\partial (huv)}{\partial y} = 0$
-
-         $\frac{\partial (hv)}{\partial t} + \frac{\partial (huv)}{\partial x} + \frac{\partial}{\partial y}(hv^2 + \frac{1}{2}gh^2) = 0$
-
-         Where:
-         - $h$ is the total fluid column height
-         - $u$ is the fluid velocity in x-direction
-         - $v$ is the fluid velocity in y-direction
-         - $g$ is the acceleration due to gravity
+   $\frac{\partial (hu)}{\partial t} + \frac{\partial}{\partial x}(hu^2 + \frac{1}{2}gh^2) + \frac{\partial (huv)}{\partial y} = 0$
+   
+   $\frac{\partial (hv)}{\partial t} + \frac{\partial (huv)}{\partial x} + \frac{\partial}{\partial y}(hv^2 + \frac{1}{2}gh^2) = 0$
+   
+   Where:
+   - $h$ is the total fluid column height
+   - $u$ is the fluid velocity in x-direction
+   - $v$ is the fluid velocity in y-direction
+   - $g$ is the acceleration due to gravity
 
 ## Numerical Method
 
